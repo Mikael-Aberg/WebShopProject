@@ -17,42 +17,120 @@
     @Html.Hidden("sort", Model.Sort)
     @Html.HiddenFor(x => x.OldSearchParams.Title)
 
-    @Html.DisplayNameFor(x => x.SearchParams.Title)
-    @Html.TextBoxFor(x => x.SearchParams.Title)
+    <div class="no-padding col-sm-4 col-md-3">
+        <div class="box-wrapper">
+            <div class="box-header col-xs-12">
+                <h3>Category</h3>
+            </div>
+            <div class="box-content col-xs-12">
+                <div class="row">
+                    <div class="search-holder col-sm-12">
+                        <div class="col-sm-4">
+                            @Html.LabelFor(x => x.SearchParams.Title, new { @class = "label-text" })
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.SearchParams.Title, new { @class = "search-box form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="search-holder col-sm-12">
+                        <div class="col-sm-4">
+                            @Html.LabelFor(x => x.SearchParams.FormatId, new { @class = "label-text" })
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(x => x.SearchParams.FormatId, Model.Formats, "All", new { @class = "search-box form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-wrapper">
+            <div class="box-header col-xs-12">
+                <h3>Price</h3>
+            </div>
+            <div class="box-content col-xs-12">
+                <div class="row">
+                    <div class="search-holder col-sm-12">
+                        <div class="col-sm-4">
+                            @Html.LabelFor(x => x.SearchParams.Title, new { @class = "label-text" })
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.SearchParams.Title, new { @class = "search-box form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="search-holder col-sm-12">
+                        <div class="col-sm-4">
+                            @Html.LabelFor(x => x.SearchParams.FormatId, new { @class = "label-text" })
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(x => x.SearchParams.FormatId, Model.Formats, "All", new { @class = "search-box form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-wrapper">
+            <div class="box-header col-xs-12">
+                <h3>Search</h3>
+            </div>
+            <div class="box-content col-xs-12">
+                <div class="row">
+                    <div class="search-holder col-sm-12">
+                        <div class="col-sm-4">
+                            @Html.LabelFor(x => x.SearchParams.Title, new { @class = "label-text" })
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.SearchParams.Title, new { @class = "search-box form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="search-holder col-sm-12">
+                        <div class="col-sm-4">
+                            @Html.LabelFor(x => x.SearchParams.FormatId, new { @class = "label-text" })
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(x => x.SearchParams.FormatId, Model.Formats, "All", new { @class = "search-box form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button value="Search" name="search" type="submit">Search</button>
+    </div>
 
-    <button value="Search" name="search" type="submit">Search</button>
+}
 
-    @:<table class="table">
-        <tr>
-            <th>
-                <button type="submit" value="Format.FormatName" name="submit" class="table-header-button">@Html.DisplayNameFor(model => model.Products[0].Format)</button>
-            </th>
-            <th>
-                <button type="submit" value="Movie.Title" name="submit" class="table-header-button">@Html.DisplayNameFor(model => model.Products[0].Movie.Title)</button>
-            </th>
-            <th>
-                <button type="submit" value="Price" name="submit" class="table-header-button">@Html.DisplayNameFor(model => model.Products[0].Price)</button>
-            </th>
-            <th></th>
-        </tr>
+
+
+@{ 
+    var r = new Random();
 }
-@foreach (var item in Model.Products)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Format.FormatName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Movie.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
-</table>
+
+<div class="col-sm-9">
+
+    @foreach (var item in Model.Products)
+    {
+        <div class="item-wrapper col-sm-4">
+            <div class="item-img col-sm-12">
+                <img class="img-responsive" src= @("https://unsplash.it/350/350?image=" + r.Next(0, 1013)) />
+           
+                <div class="item-img-menu">
+                    <ul class="list-inline btn-group">
+                        <li><a class="btn btn-default"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                        <li><a class="btn btn-default"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                        <li><a class="btn btn-default"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 item-content">
+                <div class="item-title">
+                    <p>@Html.DisplayFor(x => item.Movie.Title)</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

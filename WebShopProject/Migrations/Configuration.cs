@@ -16,7 +16,7 @@ namespace WebShopProject.Migrations
         protected override void Seed(WebShopProject.DAL.WebShopContext context)
         {
             var formats = new[]
-            {
+{
                 new Format { FormatName = "DVD" },
                 new Format { FormatName = "Blue-ray" },
                 new Format { FormatName = "VHS" }

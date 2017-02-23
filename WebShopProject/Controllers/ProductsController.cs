@@ -18,30 +18,31 @@ namespace WebShopProject.Controllers
         public ActionResult Index()
         {
             var products = db.Products.OrderByDescending(x => x.Id).ToList();
-            return View(new ProductIndexViewModel { Products = products, Sort = "" });
+            return View(new ProductIndexViewModel { Products = products, Formats = new SelectList(db.Formats, "Id", "FormatName"), Sort = "" });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(ProductSearchParamaters OldSearchParams, ProductSearchParamaters SearchParams, string search = "", string submit = "Id", string sort = "")
+        public ActionResult Index(ProductSearchParamaters OldSearchParams,
+                                  ProductSearchParamaters SearchParams,
+                                  string search = "", string submit = "Id", string sort = "")
         {
             if (sort.Equals("Id descending")) sort = "Id";
-
-            var products = db.Products.ToList();
-
             if (search.Equals("Search")) OldSearchParams = SearchParams;
-
-            products = products.Where(x => !(string.IsNullOrWhiteSpace(OldSearchParams.Title)) ? x.Movie.Title.ToLower().Contains(OldSearchParams.Title.ToLower()) : true)
-                               .ToList();
 
             ModelState.Clear();
             if (sort.Equals(submit)) sort = sort + " descending";
             else if (sort.Contains(submit)) sort = submit;
             else sort = submit;
 
-            products = products.OrderBy(sort).ToList();
+            IQueryable<Product> products = db.Products;
 
-            return View(new ProductIndexViewModel { Products = products, Sort = sort, OldSearchParams = OldSearchParams, SearchParams = SearchParams });
+            products = products
+                .Where(x => (OldSearchParams.Title != null) ? x.Movie.Title.ToLower().Contains(OldSearchParams.Title.ToLower()) : true)
+                .Where(x => (OldSearchParams.FormatId != null) ? x.FormatId == OldSearchParams.FormatId : true)
+                .OrderBy(sort);
+
+            return View(new ProductIndexViewModel { Formats = new SelectList(db.Formats, "Id", "FormatName"), Products = products.ToList(), Sort = sort, OldSearchParams = OldSearchParams, SearchParams = SearchParams });
         }
 
         // GET: Products/Details/5

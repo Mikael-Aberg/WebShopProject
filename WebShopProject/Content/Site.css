@@ -23,11 +23,203 @@ textarea {
     max-width: 280px;
 }
 
-.table-header-button{
-    background:none;
-    border:none;
-    outline:none;
-    color:#428bca;
-    font-weight:700;
+/*
+    1 Common
+
+    2 Search boxes
+        2.1 Box header
+        2.2 Box content
+        2.3 Box wrapper
+
+    3 Search fields
+        3.1 Search box
+
+    4 Product item
+        4.1 wrapper
+        4.2 img
+        4.3 menu
+        4.4 content
+
+*/
+/*======================= COMMON =======================*/
+
+.no-padding {
+    padding: 0;
 }
 
+/*==================== SEARCH BOXES ====================*/
+
+
+/*2.1 ============================================*/
+
+.box-header {
+    background: rgb(136,191,232); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(136,191,232,1) 0%, rgba(112,176,224,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(136,191,232,1) 0%,rgba(112,176,224,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(136,191,232,1) 0%,rgba(112,176,224,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#88bfe8', endColorstr='#70b0e0',GradientType=0 ); /* IE6-9 */
+    padding: 10px;
+}
+
+    .box-header h3 {
+        margin: 0;
+        padding: 0;
+        margin-left: 10px;
+        text-shadow: 2px 1px 5px #1b4564;
+        color: white;
+        font-family: 'Century Gothic';
+    }
+
+/*2.2 ============================================*/
+
+.box-content {
+    padding: 0;
+    padding-top: 5px;
+    border-right: solid 4px #cbd5d5;
+    border-left: solid 4px #cbd5d5;
+    border-bottom: solid 4px #cbd5d5;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+    .box-content > .row ~ .row {
+        margin-top: 10px;
+    }
+
+.label-text {
+    padding-top: 6px;
+    font-family: 'Golden Ratio';
+    letter-spacing: .5px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/*2.3 ============================================*/
+
+.box-wrapper {
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+/*=================== SEARCH FIELDS ===================*/
+
+/*3.1 ============================================*/
+
+.search-box {
+    width: 100%;
+    color: #9c9c9c;
+    transition: all .5s;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: .5px solid rgba(213, 213, 213, 0.36);
+    box-shadow: .5px .5px 4px #858585 inset;
+}
+
+    .search-box:focus {
+        border: none;
+        box-shadow: 1px 1px 5px rgba(112,176,224,1) inset, 1px 1px 5px rgba(112,176,224,1);
+    }
+
+/*================== PRODUCT ITEM ==================*/
+
+
+/*4.1 ============================================*/
+
+.item-wrapper {
+    transition: all .5s;
+    margin-bottom: 40px;
+}
+
+    .item-wrapper:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+        .item-wrapper:hover .item-img-menu {
+            background-color: rgba(73, 186, 193, 0.9);
+        }
+
+/*4.2 ============================================*/
+
+.item-img {
+    padding: 0;
+    position: relative;
+}
+
+/*4.3 ============================================*/
+
+.item-img-menu {
+    transition: all .5s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+    .item-img-menu .fa {
+        transition: all .5s;
+        color: white;
+    }
+
+    .item-img-menu a {
+        width: 42px;
+        height: 42px;
+    }
+
+.item-wrapper ul {
+    text-align: center;
+    width: 170px;
+    height: 42px;
+    color: black;
+    transition: all .5s;
+    position: absolute;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    .item-wrapper ul a {
+        border-radius: 0;
+        transition: all .5s;
+        text-align: center;
+        padding: 0;
+        background: transparent;
+        border: 3px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .item-wrapper ul i {
+        transition: all .5s;
+        padding-top: 8px;
+        font-size: 20px;
+    }
+
+    .item-wrapper ul li:hover i {
+        color: rgba(73, 186, 193, 0.9);
+    }
+
+    .item-wrapper ul li:hover a {
+        background: white;
+        border-color: white;
+    }
+
+.item-wrapper:hover ul {
+    opacity: 1;
+}
+
+/*4.4 ============================================*/
+
+.item-content {
+    padding: 0;
+}
+
+
+@font-face {
+    font-family: "Golden Ratio";
+    src: url(../fonts/GoldenRatio-Demo.otf);
+}
