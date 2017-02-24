@@ -8,7 +8,7 @@
     <link href="~/Content/nouislider.min.css" rel="stylesheet" />
 </head>
 
-<div class="page-wrapper">
+<div class="page-wrapper container col-xs-12">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -24,22 +24,16 @@
                 <div class="box-content col-xs-12">
                     <div class="row">
                         <div class="search-holder col-sm-12">
-                            <div class="col-sm-4">
-                                @Html.LabelFor(x => x.SearchParams.Title, new { @class = "label-text" })
-                            </div>
-                            <div class="col-sm-8">
-                                @Html.TextBoxFor(x => x.SearchParams.Title, new { @class = "search-box form-control" })
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="search-holder col-sm-12">
-                            <div class="col-sm-4">
-                                @Html.LabelFor(x => x.SearchParams.FormatId, new { @class = "label-text" })
-                            </div>
-                            <div class="col-sm-8">
-                                @Html.DropDownListFor(x => x.SearchParams.FormatId, Model.Formats, "All", new { @class = "search-box form-control" })
-                            </div>
+                            <ul class="category-list text-bold">
+                                <li>Category</li>
+                                <li>Category</li>
+                                <li>Category</li>
+                                <li>Category</li>
+                                <li>Category</li>
+                                <li>Category</li>
+                                <li>Category</li>
+                                <li>Category</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -55,17 +49,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="search-holder col-sm-12">
-                            <div class="col-sm-3">
+                        <div class="search-holder top-margin col-sm-12">
+                            <div class="col-sm-3 filter-holder">
                                 <button id="filter" class="text-bold">Filter</button>
                             </div>
                             <div class="col-sm-9 text-right">
-                                <ul class="list-inline price-list">
-                                    <li><p>Price:</p></li>
-                                    <li><p class="text-bold" id="min"></p></li>
-                                    <li><p>-</p></li>
-                                    <li><p class="text-bold" id="max"></p></li>
-                                </ul>
+                                <div class="price-text">
+                                    <p class="text-inline price-tag">Price:</p><span class="text-bold" id="min"></span> - <span class="text-bold" id="max"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -102,11 +93,11 @@
         </div>
     }
 
-    <div class="col-sm-9">
+    <div class="col-sm-8 col-md-9">
 
         @foreach (var item in Model.Products)
         {
-            <div class="item-wrapper col-sm-4">
+            <div class="item-wrapper col-sm-4 col-md-4">
                 <div class="item-img col-sm-12">
                     <img class="img-responsive" src="http://placehold.it/350x350" />
 

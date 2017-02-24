@@ -5,8 +5,10 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left:10px;
+    margin-right:10px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -37,6 +39,8 @@ textarea {
         3.3 Price slider
         3.4 Price list
         3.5 Price filter button
+        3.6 Price tag
+        3.7 Categories
 
     4 Product item
         4.1 wrapper
@@ -47,6 +51,10 @@ textarea {
 */
 /*======================= COMMON =======================*/
 
+.top-margin {
+    margin-top: 10px;
+}
+
 .no-padding {
     padding: 0;
 }
@@ -56,11 +64,17 @@ textarea {
 }
 
 .text-bold {
+    margin-left: 3px;
+    margin-right: 3px;
     font-weight: 600;
 }
 
 body {
     font-family: 'Oxygen',sans-serif;
+}
+
+.text-inline {
+    display: inline-block;
 }
 
 
@@ -70,19 +84,19 @@ body {
 /*2.1 ============================================*/
 
 .box-header {
-    background:#47bac1;
+    background: #47bac1;
     padding: 0;
 }
 
     .box-header h3 {
-        margin:0;
+        margin: 0;
         border-radius: 0;
         padding: 0 15px;
-        line-height:45px;
-        font-size:15px;
-        font-weight:700;
-        color:white;
-        text-transform:uppercase;
+        line-height: 45px;
+        font-size: 15px;
+        font-weight: 700;
+        color: white;
+        text-transform: uppercase;
     }
 
 /*2.2 ============================================*/
@@ -102,9 +116,9 @@ body {
     }
 
 .label-text {
-    font-size:14px;
-    line-height:22px;
-    font-weight:400;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
 }
 
 /*2.3 ============================================*/
@@ -138,12 +152,14 @@ body {
 
 /*3.2 ============================================*/
 .search-wrapper {
+    max-width:220px;
 }
 
 /*3.3 ============================================*/
 #slider {
     margin-left: 20px;
     margin-right: 20px;
+    margin-top: 5px;
     height: 4px;
     border-radius: 0;
     border: none;
@@ -187,7 +203,61 @@ body {
 
 /*3.5 ============================================*/
 
+.filter-holder {
+    display: inline-block;
+    padding-left: 5px;
+}
+
 #filter {
+    display: inline-block;
+    min-width: 60px;
+    padding: 5px;
+    background: black;
+    border: none;
+    color: white;
+}
+
+/*3.6 ============================================*/
+
+.price-tag {
+    margin-right: 10px;
+}
+
+.price-text {
+    max-height: 25px;
+    display: inline-block;
+    padding-top: 5px;
+}
+
+/*3.7 ============================================*/
+
+.category-list {
+    list-style: none;
+    line-height: 40px;
+    padding-left: 30px;
+    color: black;
+}
+
+    .category-list li {
+        display: block;
+        transition: all .5s;
+    }
+
+        .category-list li:hover {
+            cursor: pointer;
+            color: #47bac1;
+            animation-name: category-move;
+            animation-duration: 3s inherit;
+        }
+
+@keyframes category-move {
+    from {
+        padding-left: 0;
+    }
+
+    to {
+        padding-left: 200px;
+    }
 }
 
 /*================== PRODUCT ITEM ==================*/
@@ -196,6 +266,7 @@ body {
 /*4.1 ============================================*/
 
 .item-wrapper {
+    max-width: 350px;
     transition: all .5s;
     margin-bottom: 40px;
     min-height: 300px;
@@ -210,10 +281,18 @@ body {
             background-color: rgba(73, 186, 193, 0.9);
         }
 
+@media(max-width:992px){
+    .item-wrapper {
+        max-width:150px;
+        min-height:150px;
+    }
+}
+
 /*4.2 ============================================*/
 
 .item-img {
     padding: 0;
+    max-width: 350px;
     position: relative;
 }
 
@@ -281,18 +360,19 @@ body {
     opacity: 1;
 }
 
-@media(max-width : 992px) {
+@media(min-width: 768px) and (max-width: 992px) {
     .item-wrapper ul {
         width: 160px;
     }
 
     .item-img-menu a {
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
     }
 
     .item-wrapper ul i {
-        padding-top: 4px;
+        font-size:15px;
+        padding-top: 3px;
     }
 }
 
@@ -303,4 +383,10 @@ body {
     text-align: left;
     font-weight: 700;
     font-size: 20px;
+}
+
+@media(max-width:992px) {
+    .item-content {
+        font-size:15px
+    }
 }
