@@ -5,10 +5,8 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left:10px;
-    margin-right:10px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -107,6 +105,7 @@ body {
     border-right: solid 5px #f0f0f0;
     border-left: solid 5px #f0f0f0;
     border-bottom: solid 5px #f0f0f0;
+    margin-bottom: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -152,7 +151,7 @@ body {
 
 /*3.2 ============================================*/
 .search-wrapper {
-    max-width:220px;
+    max-width: 220px;
 }
 
 /*3.3 ============================================*/
@@ -281,10 +280,10 @@ body {
             background-color: rgba(73, 186, 193, 0.9);
         }
 
-@media(max-width:992px){
+@media(max-width:992px) {
     .item-wrapper {
-        max-width:150px;
-        min-height:150px;
+        max-width: 150px;
+        min-height: 150px;
     }
 }
 
@@ -371,7 +370,7 @@ body {
     }
 
     .item-wrapper ul i {
-        font-size:15px;
+        font-size: 15px;
         padding-top: 3px;
     }
 }
@@ -387,6 +386,6 @@ body {
 
 @media(max-width:992px) {
     .item-content {
-        font-size:15px
+        font-size: 15px;
     }
 }
