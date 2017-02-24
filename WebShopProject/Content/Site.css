@@ -34,6 +34,9 @@ textarea {
     3 Search fields
         3.1 Search box
         3.2 Wrapper
+        3.3 Price slider
+        3.4 Price list
+        3.5 Price filter button
 
     4 Product item
         4.1 wrapper
@@ -52,6 +55,14 @@ textarea {
     margin-top: 150px;
 }
 
+.text-bold {
+    font-weight: 600;
+}
+
+body {
+    font-family: 'Oxygen',sans-serif;
+}
+
 
 /*==================== SEARCH BOXES ====================*/
 
@@ -59,21 +70,19 @@ textarea {
 /*2.1 ============================================*/
 
 .box-header {
-    background: rgb(136,191,232); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(136,191,232,1) 0%, rgba(112,176,224,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(136,191,232,1) 0%,rgba(112,176,224,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(136,191,232,1) 0%,rgba(112,176,224,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#88bfe8', endColorstr='#70b0e0',GradientType=0 ); /* IE6-9 */
-    padding: 10px;
+    background:#47bac1;
+    padding: 0;
 }
 
     .box-header h3 {
-        margin: 0;
-        padding: 0;
-        margin-left: 10px;
-        text-shadow: 2px 1px 5px #1b4564;
-        color: white;
-        font-family: 'Century Gothic';
+        margin:0;
+        border-radius: 0;
+        padding: 0 15px;
+        line-height:45px;
+        font-size:15px;
+        font-weight:700;
+        color:white;
+        text-transform:uppercase;
     }
 
 /*2.2 ============================================*/
@@ -81,9 +90,9 @@ textarea {
 .box-content {
     padding: 0;
     padding-top: 5px;
-    border-right: solid 4px #cbd5d5;
-    border-left: solid 4px #cbd5d5;
-    border-bottom: solid 4px #cbd5d5;
+    border-right: solid 5px #f0f0f0;
+    border-left: solid 5px #f0f0f0;
+    border-bottom: solid 5px #f0f0f0;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -93,11 +102,9 @@ textarea {
     }
 
 .label-text {
-    padding-top: 6px;
-    font-family: 'Golden Ratio';
-    letter-spacing: .5px;
-    font-size: 17px;
-    font-weight: 600;
+    font-size:14px;
+    line-height:22px;
+    font-weight:400;
 }
 
 /*2.3 ============================================*/
@@ -131,10 +138,57 @@ textarea {
 
 /*3.2 ============================================*/
 .search-wrapper {
-    position: fixed;
-    top: 80px;
 }
 
+/*3.3 ============================================*/
+#slider {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 4px;
+    border-radius: 0;
+    border: none;
+}
+
+    #slider .noUi-connect {
+        background-color: black;
+    }
+
+    #slider .noUi-handle {
+        background-color: white;
+        border-radius: 50%;
+        height: 16px;
+        width: 16px;
+        padding: 0;
+        margin: 0;
+        left: 0;
+        border: 3px solid black;
+    }
+
+        #slider .noUi-handle:after, #slider .noUi-handle:before {
+            content: none;
+        }
+
+    #slider .noUi-base {
+        background: #f0f0f0;
+        border: none;
+    }
+
+/*3.4 ============================================*/
+
+.price-list li {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+    .price-list li:nth-child(1) {
+        margin-right: 10px;
+    }
+
+/*3.5 ============================================*/
+
+#filter {
+}
 
 /*================== PRODUCT ITEM ==================*/
 
@@ -249,10 +303,4 @@ textarea {
     text-align: left;
     font-weight: 700;
     font-size: 20px;
-}
-
-
-@font-face {
-    font-family: "Golden Ratio";
-    src: url(../fonts/GoldenRatio-Demo.otf);
 }
